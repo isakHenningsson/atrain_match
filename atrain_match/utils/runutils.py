@@ -212,7 +212,7 @@ def parse_scenesfiles_oca(filename):
     if not filename:
         raise ValueError("No file %r" %filename)
     
-    match = re.match(r"W_XX-EUMETSAT-Darmstadt,OCA\+,([^+]+)\+SEVIRI_C_EUMG_(\d+)_+")
+    match = re.match(r"W_XX-EUMETSAT-Darmstadt,OCA\+,([^+]+)\+SEVIRI_C_EUMG_(\d+)_+", filename)
     if not match:
         raise ValueError("Couldn't parse OCA file %r" %filename)
     

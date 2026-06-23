@@ -277,7 +277,7 @@ def find_oca_cloud_file(cross, AM_PATHS):
 def find_extra_product_files(cross, AM_PATHS, SETTINGS):
     """Find main cloudproduct file with lat/lon OCA."""
     extra_product_files = {}
-    if SETTINGS['OCA_VALIDATION']:
+    if SETTINGS['OCA_VALIDATION'] and SETTINGS['OCA_CMA_SEPARATE']:
         extra_product_files["oca_cma"], tobj = find_main_cloudproduct_file(cross,
                                                                               AM_PATHS['oca_dir_cma'],
                                                                               AM_PATHS['oca_file_cma'])
@@ -346,6 +346,7 @@ def find_main_cloudproduct_file(cross, filedir_pattern, filename_pattern, values
         file_pattern = insert_info_in_filename_or_path(filename_pattern,
                                                        values, datetime_obj=tobj)
         files = glob(os.path.join(found_dir, file_pattern))
+        print(files)
         if len(files) > 0:
             no_files_found = False
             logger.info("Found file: %s", os.path.basename(str(files[0])))
