@@ -138,7 +138,7 @@ def main():
     group.add_argument('--maia_product_file', '-mf',
                        help="Interpret arguments as inputfile with "
                        "list of maia files")
-    group.add_argument('--oca_product_files', '-of',
+    group.add_argument('--oca_product_file', '-of',
                        help="Interpret arguments as inputfile with "
                        "list of OCA files")
     # Consider having this as the only option in future
