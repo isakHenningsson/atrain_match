@@ -208,7 +208,7 @@ def scale_oca_var(oca_var):
     # out = likely_unscaled.astype(np.float)*gain + intercept
     out = likely_unscaled
     out[likely_unscaled == nodata] = ATRAIN_MATCH_NODATA
-    return out.astype(np.float), nodata
+    return out.astype(float), nodata
 
 
 def read_oca_ctype_cmask_ctth(oca_nc):
@@ -355,7 +355,7 @@ def scale_oca_var_modis(oca_var):
     nodata = -999.0
     out = likely_unscaled
     out[likely_unscaled == nodata] = ATRAIN_MATCH_NODATA
-    return out.astype(np.float), nodata
+    return out.astype(float), nodata
 
 
 def read_oca_ctype_cmask_ctth_modis(oca_nc):
