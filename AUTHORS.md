@@ -6,3 +6,4 @@
 - [Karl-Göran Karlsson]
 - [Jacob Malm]
 - [Daniel Philipp (danielphilipp)] (https://github.com/danielphilipp)
+- [Peter Berthelemy (peter-berthelemy)](https://github.com/peter-berthelemy)
