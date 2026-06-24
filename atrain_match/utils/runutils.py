@@ -212,12 +212,14 @@ def parse_scenesfiles_oca(filename):
     if not filename:
         raise ValueError("No file %r" %filename)
     
+    #use regex to extract the satellite name and time
     match = re.match(r"W_XX-EUMETSAT-Darmstadt,OCA\+,([^+]+)\+SEVIRI_C_EUMG_(\d+)_+", filename)
     if not match:
         raise ValueError("Couldn't parse OCA file %r" %filename)
     
     satname, datetime_str = match.groups()
     _datetime = datetime.strptime(datetime_str, '%Y%m%d%H%M%S')
+    #The satnames in the directory and filenames are different, hence this lovely thing
     match satname:
         case "MET08":
             _satname = "MSG1"

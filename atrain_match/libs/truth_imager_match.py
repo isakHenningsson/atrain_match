@@ -346,7 +346,6 @@ def find_main_cloudproduct_file(cross, filedir_pattern, filename_pattern, values
         file_pattern = insert_info_in_filename_or_path(filename_pattern,
                                                        values, datetime_obj=tobj)
         files = glob(os.path.join(found_dir, file_pattern))
-        print(files)
         if len(files) > 0:
             no_files_found = False
             logger.info("Found file: %s", os.path.basename(str(files[0])))
