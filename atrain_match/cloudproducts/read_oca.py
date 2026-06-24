@@ -153,7 +153,7 @@ def oca_read_all_nc_cdr(filename):
     cloudproducts = read_oca_geoobj_modis(oca_nc, filename)
     cloudproducts.imager_angles = ImagerAngObj()
     cloudproducts.imager_angles.sunz = np.where(cloudproducts.longitude > -999999, 0, 100)
-    #cloudproducts.imager_angles.satz = np.where(cloudproducts.longitude > -999999, 0, 100)
+    cloudproducts.imager_angles.satz = np.where(cloudproducts.longitude > -999999, 0, 100)
 
     logger.info("Reading angles ...")
     # No angles!
