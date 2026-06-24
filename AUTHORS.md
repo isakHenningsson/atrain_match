@@ -6,3 +6,4 @@
 - [Karl-Göran Karlsson]
 - [Jacob Malm]
 - [Daniel Philipp (danielphilipp)] (https://github.com/danielphilipp)
+- [Isak Henningsson (isakHenningsson)](https://github.com/isakHenningsson)
