@@ -107,7 +107,7 @@ def oca_read_all(filename, extra_files):
         cloudproducts.sec1970_start = calendar.timegm(time_info["date_time"].timetuple())
         cloudproducts.sec1970_end = cloudproducts.sec1970_start + seconds
         cloudproducts = create_imager_time(cloudproducts, values={})
-        do_some_geo_obj_logging(cloudproducts, extra_files)
+        do_some_geo_obj_logging(cloudproducts)
 
     aux_dict = add_claas3(cloudproducts, extra_files, aux_dict)
     cloudproducts.aux = AuxiliaryObj(aux_dict)
@@ -140,7 +140,7 @@ def add_claas3(cloudproducts, extra_files, aux_dict):
         cloudproducts.imager_angles.sunz = np.where(night_flag, 100, 90)
         cloudproducts.imager_angles.sunz = np.where(day_flag, 10,  cloudproducts.imager_angles.sunz)
     for key in aux_dict:
-        if "claas3" in key:
+        if "claas3" in key and key != "claas3_conditions":
             aux_dict[key][aux_dict[key].mask] = ATRAIN_MATCH_NODATA
     return aux_dict
 
