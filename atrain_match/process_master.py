@@ -33,6 +33,7 @@ from atrain_match.utils.runutils import parse_scenesfile_v2014
 from atrain_match.utils.runutils import parse_scenesfile_cci
 from atrain_match.utils.runutils import parse_scene
 from atrain_match.utils.runutils import parse_scenesfile_maia
+from atrain_match.utils.runutils import parse_scenesfile_patmos
 from atrain_match.utils.runutils import parse_scenesfile_reshaped
 from atrain_match.utils.runutils import parse_scenesfiles_oca
 from atrain_match.utils.common import Cross
@@ -141,6 +142,9 @@ def main():
     group.add_argument('--oca_product_file', '-of',
                        help="Interpret arguments as inputfile with "
                        "list of OCA files")
+    group.add_argument('--patmos_product_file', '-patf',
+                       help="Interpret arguments as inputfile with "
+                       "list of patmos files")
     # Consider having this as the only option in future
     # Matchup files are made with process_master_only_match.py
     group.add_argument('--reshaped_product_file', '-rf',
@@ -213,6 +217,15 @@ def main():
                 pass
             else:
                 satname, time = parse_scenesfile_maia(line)
+                matchups.append(Cross(satname, time))
+    elif options.patmos_product_file is not None:
+        patmos_output_file = options.patmos_product_file
+        read_from_file = open(patmos_output_file, 'r')
+        for line in read_from_file:
+            if line.rstrip() in "":
+                pass
+            else:
+                satname, time = parse_scenesfile_patmos(line)
                 matchups.append(Cross(satname, time))
     elif options.reshaped_product_file is not None:
         reshaped_output_file = options.reshaped_product_file
