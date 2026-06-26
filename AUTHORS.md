@@ -7,3 +7,4 @@
 - [Jacob Malm]
 - [Daniel Philipp (danielphilipp)] (https://github.com/danielphilipp)
 - [Isak Henningsson (isakHenningsson)](https://github.com/isakHenningsson)
+- [Peter Berthelemy (peter-berthelemy)](https://github.com/peter-berthelemy)
